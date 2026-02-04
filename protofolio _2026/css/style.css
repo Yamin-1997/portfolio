@@ -1,0 +1,505 @@
+/* =====================================================
+   1. RESET & BASE
+===================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #EAFBF7;
+  color: #1F2A33;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 70px;
+}
+
+/* =====================================================
+   2. TOP NAV – TAIWAN TEAL（そのまま）
+===================================================== */
+.top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 48px;
+  background: linear-gradient(90deg, #00C6A9, #0077B6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FFD84D;
+}
+
+
+/* =====================================================
+   3. HERO – SAME STYLE ALL SCREENS ⭐修正ポイント
+===================================================== */
+.hero {
+  padding: 120px 24px 80px;
+  background: linear-gradient(135deg, #00C6A9, #0077B6);
+  display: flex;
+  justify-content: center;   /* ⭐ 常に中央 */
+}
+
+.hero-inner {
+  max-width: 900px;          /* ⭐ 見た目固定 */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* photo */
+.photo img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #FFFFFF;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+
+/* intro */
+.intro h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  margin-bottom: 8px;
+  color: #f7f7f7;
+}
+
+.intro p {
+  max-width: 560px;
+  font-size: 15px;
+  color: #0d1110;
+}
+
+/* =====================================================
+   4. BUTTONS – そのまま
+===================================================== */
+.buttons {
+  margin-top: 0px;
+  margin-right: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  color: #1F2A33;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+}
+
+.green  { background: #cfb279; }
+.orange { background: #BEEAE2; }
+.blue   { background: #0077B6; color: #FFFFFF; }
+.gray   { background: #ede08d; }
+
+/* =====================================================
+   5. COMMON SECTION（そのまま）
+===================================================== */
+.section {
+  padding: 64px 8%;
+  background: #9ddff0;
+}
+
+/* =====================================================
+   6. PROJECTS – そのまま
+===================================================== */
+/* ===== PROJECTS GRID ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column; /* ⭐ 縦並び固定 */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* header */
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e; /* demo online */
+}
+
+/* ===== iframe / image 共通エリア ===== */
+.project-card iframe,
+.project-card img {
+  width: 100%;
+  height: 220px;          /* ⭐ 同じ高さ */
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 12px 0;
+  display: block;         /* ⭐ 横並び防止 */
+}
+
+/* description */
+.project-card p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ===== LINK BELOW PHOTO ===== */
+.live-link,
+.open-link {
+  display: block;                 /* ⭐ 必ず下に */
+  margin: 8px 0 14px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+
+  /* ⭐ 縦書きなどの影響を完全リセット */
+  writing-mode: horizontal-tb;
+  white-space: nowrap;
+}
+
+.live-link:hover,
+.open-link:hover {
+  text-decoration: underline;
+}
+
+/* tech stack */
+.tech-stack,
+.tech {
+  font-size: 14px;
+  color: #555;
+  margin-top: auto;      /* ⭐ 下揃え */
+}
+
+/* =====================================================
+   7. ACTIVITIES – そのまま
+===================================================== */
+.activities-gallery {
+  padding: 48px 6%;
+  background: linear-gradient(135deg, #7fdde8, #FFFFFF);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border-bottom: 6px solid #0077B6;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* =====================================================
+   8. EXPERIENCE – そのまま
+===================================================== */
+.experience-jp {
+  padding: 64px 8%;
+  background: linear-gradient(135deg, #64b0d4, #FFFFFF);
+}
+
+.exp-list li {
+  background: #cfe5e9;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  border-left: 6px solid #00C6A9;
+  list-style: none;
+  max-width: 900px;
+}
+
+/* =====================================================
+   9. FOOTER – そのまま
+===================================================== */
+/* =====================================================
+   FOOTER – STABLE ON ALL SCREENS
+===================================================== */
+footer {
+  background: #0077B6;
+  color: #FFFFFF;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ⭐ always center */
+  text-align: center;
+}
+
+/* social icons row */
+.footer-social {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+/* icons */
+.footer-social img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.95;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* hover effect (safe) */
+.footer-social img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* copyright text */
+footer p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #DFF6F2;
+  margin: 0;
+}
+
+/* ===== RESUME TABLE ===== */
+.resume-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+/* header */
+.resume-table thead th {
+  background: #eaf6ff;
+  color: #1f2a33;
+  font-weight: 600;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+}
+
+/* body cells */
+.resume-table tbody td {
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #333;
+  vertical-align: top;
+}
+
+/* row border */
+.resume-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* hover */
+.resume-table tbody tr:hover {
+  background: #f7fbff;
+}
+
+/* period column */
+.resume-table tbody td:first-child {
+  white-space: nowrap;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* school link */
+.school-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.school-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .resume-table thead {
+    display: none;
+  }
+
+  .resume-table,
+  .resume-table tbody,
+  .resume-table tr,
+  .resume-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .resume-table tr {
+    margin-bottom: 16px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    background: #fff;
+    padding: 12px;
+  }
+
+  .resume-table td {
+    padding: 8px 4px;
+  }
+
+  .resume-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+}
+   /* =========================
+   📱 PROFILE PHOTO CONTROL
+   ========================= */
+@media (max-width: 640px) {
+
+  .profile-photo {
+    width: 160px;        /* ← スマホ用サイズ */
+    height: 160px;       /* ← 縦長防止（同じ値） */
+    margin: 0 auto;      /* 中央寄せ */
+    border-radius: 50%;
+  }
+}
+/* =========================
+   📱 PHONE CONTROL
+   ========================= */
+@media (max-width: 640px) {
+
+  /* 全体余白を小さく */
+  body {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 12px;
+  }
+
+  /* プロジェクトカード：1列 */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* カード */
+  .project-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  /* 写真・iframe：スマホ用サイズ */
+  .project-card img,
+  .project-card iframe {
+    height: 180px;   /* ← ここで調整 */
+    border-radius: 12px;
+  }
+
+  /* タイトル */
+  .project-card h3 {
+    font-size: 17px;
+  }
+
+  /* 説明文 */
+  .project-card p {
+    font-size: 14px;
+  }
+
+  /* リンク：押しやすく */
+  .open-link,
+  .live-link {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    margin: 8px 0;
+    font-size: 15px;
+  }
+
+  /* テーブル（学歴など） */
+  .resume-table thead {
+    display: none;
+  }
+
+  .resume-table,
+  .resume-table tbody,
+  .resume-table tr,
+  .resume-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .resume-table tr {
+    margin-bottom: 14px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+
+  .resume-table td {
+    padding: 6px 0;
+  }
+  .resume-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+}
+@media (max-width: 640px) {
+  .profile-photo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+}
+@media (max-width: 640px) {
+  .photo {
+    width: 160px;
+    height: 160px;
+  }
+}
